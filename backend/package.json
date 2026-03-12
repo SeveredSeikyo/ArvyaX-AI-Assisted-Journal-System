@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "ArvyaX Full-Stack Assignment - AI-Assisted Journal System",
+  "keywords": [
+    "LLM",
+    "nodejs",
+    "react",
+    "sql",
+    "express"
+  ],
+  "homepage": "https://github.com/SeveredSeikyo/ArvyaX-AI-Assisted-Journal-System#readme",
+  "bugs": {
+    "url": "https://github.com/SeveredSeikyo/ArvyaX-AI-Assisted-Journal-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeveredSeikyo/ArvyaX-AI-Assisted-Journal-System.git"
+  },
+  "license": "ISC",
+  "author": "SeveredSeikyo",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  }
+}
