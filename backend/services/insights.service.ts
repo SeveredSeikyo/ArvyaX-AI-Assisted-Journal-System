@@ -1,6 +1,6 @@
 import db from '../db/db';
 import { journalInsightsRequest, userInsightRequest } from '../types/journal.interface';
-import analyzeJournal from './llm.service';
+import { analyzeJournal } from './llm.service';
 
 const analyzeJournalEntry = async (data: journalInsightsRequest) => {
 

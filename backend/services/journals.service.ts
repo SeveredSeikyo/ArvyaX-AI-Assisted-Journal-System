@@ -26,22 +26,21 @@ const createJournalEntry = (data: journalEntryRequest) => {
     return { journalId };
 }
 
-const fetchJournalEntries = ( id: string ) => {
-
-    const selectJournal = db.prepare(`
-        SELECT * FROM journal_entries WHERE user_id = ? 
-    `);
-
+const fetchJournalEntries = (id: string) => {
+    const selectJournal = db.prepare(`SELECT * FROM journal_entries WHERE user_id = ?`);
     const result = selectJournal.all(id);
 
-    if(!result.length) {
-        return {
-            error: "No Journals found"
-        }
+    if (!result.length) {
+        return { error: 'No Journals found' };
     }
 
     return result;
+};
 
-}
+const fetchJournalEntryById = (id: number) => {
+    const selectJournal = db.prepare(`SELECT * FROM journal_entries WHERE id = ?`);
+    const result = selectJournal.get(id);
+    return result || null;
+};
 
-export { fetchJournalEntries, createJournalEntry };
+export { fetchJournalEntries, fetchJournalEntryById, createJournalEntry };
