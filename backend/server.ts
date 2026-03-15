@@ -1,11 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 
 import './db/db';
 import journalRoutes from './routes/journal.routes';
-
-dotenv.config();
 
 const app = express();
 const PORT: number = Number(process.env.PORT) || 5000;

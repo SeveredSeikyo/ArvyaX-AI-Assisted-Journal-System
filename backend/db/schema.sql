@@ -1,12 +1,12 @@
 -- USERS TABLE
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 
 -- JOURNAL ENTRIES
-CREATE TABLE journal_entries (
+CREATE TABLE IF NOT EXISTS journal_entries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id TEXT NOT NULL,
     ambience TEXT NOT NULL,
@@ -17,8 +17,8 @@ CREATE TABLE journal_entries (
 );
 
 
--- LLM ANALYSIS RESULTS (CACHEABLE)
-CREATE TABLE analysis_results (
+-- LLM ANALYSIS RESULTS
+CREATE TABLE IF NOT EXISTS analysis_results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     journal_id INTEGER NOT NULL,
     emotion TEXT NOT NULL,
@@ -29,8 +29,8 @@ CREATE TABLE analysis_results (
 );
 
 
--- KEYWORDS TABLE (since keywords are arrays)
-CREATE TABLE analysis_keywords (
+-- KEYWORDS TABLE
+CREATE TABLE IF NOT EXISTS analysis_keywords (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     analysis_id INTEGER NOT NULL,
     keyword TEXT NOT NULL,
@@ -39,6 +39,6 @@ CREATE TABLE analysis_keywords (
 );
 
 
-CREATE INDEX idx_journal_user ON journal_entries(user_id);
-CREATE INDEX idx_analysis_journal ON analysis_results(journal_id);
-CREATE INDEX idx_keywords_analysis ON analysis_keywords(analysis_id);
+CREATE INDEX IF NOT EXISTS idx_journal_user ON journal_entries(user_id);
+CREATE INDEX IF NOT EXISTS idx_analysis_journal ON analysis_results(journal_id);
+CREATE INDEX IF NOT EXISTS idx_keywords_analysis ON analysis_keywords(analysis_id);
